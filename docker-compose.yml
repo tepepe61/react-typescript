@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  react-typescript:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/react-typescript
+    # commandをコメントアウトしてからcreate-react-appしてフォルダ作ってるけど、すごい二度手間じゃね?
+    command: sh -c "cd react-typescript && npm start"
+    ports:
+      - "3000:3000"
+    stdin_open: true
